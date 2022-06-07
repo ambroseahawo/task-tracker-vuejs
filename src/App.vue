@@ -3,28 +3,23 @@
     <Header title="Task Tracker" @toggle-add-task="toggleAddTask"
       :showAddTask="showAddTask" 
     />
-    <div v-show="showAddTask">
-      <AddTask @add-task="addTask" />
-    </div>
-    <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder" />
+    <router-view :showAddTask="showAddTask"></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Tasks from './components/Tasks.vue'
-import AddTask from './components/AddTask.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks,
-    AddTask,
-},
+    Footer,
+  },
   data() {
     return {
-      tasks: [],
       showAddTask: false,
     }
   },
@@ -32,54 +27,6 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },
-    addTask(task) {
-      // this.tasks.push(task)
-      //or
-      this.tasks = [task, ...this.tasks]
-    },
-    deleteTask(id) {
-      if(confirm('Are you sure?')) {
-        this.tasks = this.tasks.filter((task) => task.id !== id)
-      }
-    },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => 
-        // if the task id matches the id passed in, toggle the reminder
-
-        // longer way
-        // {
-        //   if(task.id === id) {
-        //     task.reminder = !task.reminder
-        //   }
-        //   return task
-        // }
-
-        // shorter way
-        task.id === id ? { ...task, reminder: !task.reminder } : task
-      )
-    }
-  },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Learn Vue',
-        day: "March 1st at 2:30pm",
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Meeting at School',
-        day: "March 3rd at 1:30pm",
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Learn Vue Router',
-        day: "March 4th at 11:30am",
-        reminder: false,
-      }
-    ]
   }
 }
 </script>
