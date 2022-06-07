@@ -1,5 +1,9 @@
 # task-tracker-vuejs
 
+## Hosted Live Demo on Netlify
+
+https://tasks-tracker-vuejs.netlify.app/
+
 ## Project setup
 ```
 npm install
