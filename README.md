@@ -1,9 +1,7 @@
 # task-tracker-vuejs
 
 ## Hosted Live Demo on Netlify
-```
-https://tasks-tracker-vuejs.netlify.app/
-```
+[Tasks Tracker Vuejs - https://tasks-tracker-vuejs.netlify.app](https://tasks-tracker-vuejs.netlify.app/)
 
 ## Project setup
 ```
